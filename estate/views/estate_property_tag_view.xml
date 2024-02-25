@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="property_tag_tree_view" model="ir.ui.view">
+            <field name="name">estate.property.tag.tree</field>
+            <field name="model">estate.property.tag</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Action for setting-PropertyTag -->
+        <record id="setting_property_tag_action" model="ir.actions.act_window">
+            <field name="name">Property Tag</field>
+            <field name="res_model">estate.property.tag</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Setting-propertyType Menu -->
+        <menuitem id="realestate_property_tag"
+            name="Property Tag"
+            parent="realestate_setting"
+            action="setting_property_tag_action"
+        />
+    </data>
+</odoo>

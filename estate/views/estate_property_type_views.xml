@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Form view for settings -->
+        <record id="settings_sheet_view" model="ir.ui.view">
+            <field name="name">estate.property.type.sheet</field>
+            <field name="model">estate.property.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="return_action_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-money"
+                                context="{'xml_id':'estate.estate_offer_action'}"
+                            >
+                                <field name="offer_ids" string="Offer" widget="statinfo" />
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" nolabel="1" />
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page name="Properties">
+                                <field name="property_ids">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="expected_price" />
+                                        <field name="state" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="property_type_tree_view" model="ir.ui.view">
+            <field name="name">estate.property.type.tree</field>
+            <field name="model">estate.property.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle" />
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action for settings-PropertyType -->
+        <record id="setting_property_type_action" model="ir.actions.act_window">
+            <field name="name">Property Type</field>
+            <field name="res_model">estate.property.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Setting menu -->
+        <menuitem id="realestate_setting"
+            name="Settings"
+            parent="Menu_root"
+        />
+
+        <!-- Setting-propertyType Menu -->
+        <menuitem id="realestate_property_type"
+            name="Property Types"
+            parent="realestate_setting"
+            action="setting_property_type_action"
+        />
+
+    </data>
+</odoo>

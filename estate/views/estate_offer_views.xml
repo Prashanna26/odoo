@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for Offer -->
+        <record id="offer_tree_view" model='ir.ui.view'>
+            <field name='name'>offer</field>
+            <field name='model'>estate.offer</field>
+            <field name='arch' type='xml'>
+                <tree editable="bottom" decoration-success="status=='accepted'"
+                    decoration-danger="status=='refused'">
+                    <field name="price" />
+                    <field name="partner_id" />
+                    <field name='validity' />
+                    <field name='date_deadline' />
+                    <button name="action_accept" type="object" icon="fa-check" string="Accept"
+                        attrs="{'invisible': ['|', ('status', '=', 'accepted'), ('status', '=', 'refused')]}" />
+                    <button name="action_refuse" type="object" icon="fa-times" string="Reject"
+                        attrs="{'invisible': ['|', ('status', '=', 'accepted'), ('status', '=', 'refused')]}" />
+                    <field name="status"  />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Offer -->
+        <record id="offer_form_view" model='ir.ui.view'>
+            <field name='name'>offer</field>
+            <field name='model'>estate.offer</field>
+            <field name='arch' type='xml'>
+                <form>
+                    <sheet>
+                        <group>
+                            <field name='price' />
+                            <field name='partner_id' />
+                            <field name='validity' />
+                            <field name='date_deadline' />
+                            <field name='status' />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+
+        </record>
+        <record id="estate_offer_action" model="ir.actions.act_window">
+            <field name="name">Offers</field>
+            <field name="res_model">estate.offer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
