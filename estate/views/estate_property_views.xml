@@ -145,7 +145,7 @@
                                     <field name="garden_area" string="Garden Area(sqm)" attrs="{'invisible': [('garden', '=', False)]}" />
                                     <field name="garden_orientation" attrs="{'invisible': [('garden', '=', False)]}" />
                                     <field name="total_area" string="Total Area(sqm)"/>
-                                    <field name="state" />
+                                    <field name="state" invisible='1'/>
                                     <field name="active" invisible="1"/>
                                 </group>
                             </page>
