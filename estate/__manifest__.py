@@ -12,10 +12,17 @@
         'views/estate_property_type_views.xml',
         'views/estate_property_tag_view.xml',
         'views/estate_property_inherit.xml',
+        'views/client_action.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'estate/static/src/**/*.js',
+            'estate/static/src/**/*.xml',
+            'estate/static/src/**/*.scss',
+        ]
+    },
     'demo':[],
     'installable': True,
     'application': True,
-    'assets':{},
     'license': 'LGPL-3',
 }
