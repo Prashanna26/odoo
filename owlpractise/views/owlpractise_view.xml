@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record model="ir.actions.client" id="action_counter">
+            <field name="name">my_counter_action</field>
+            <field name="tag">owlpractise.Counter</field>
+        </record>
+
+        <!-- <record model="ir.actions.client" id="action_todo">
+            <field name="name">my_todo_action</field>
+            <field name="tag">owlpractise.Todo</field>
+        </record> -->
+
+        <menuitem
+            id="menu_root"
+            name="Owl practise"
+        />
+
+        <menuitem
+            id="Menu_counter"
+            name="Counter"
+            parent="menu_root"
+            action="action_counter"
+        />
+<!-- 
+        <menuitem
+            id="Menu_todo"
+            name="To do list"
+            parent="menu_root"
+            action="action_todo"
+        /> -->
+    </data>
+</odoo>
